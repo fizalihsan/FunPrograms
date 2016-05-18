@@ -19,20 +19,26 @@ public class ReverseSinglyLinkedList {
         print(list);
     }
 
-    private static <T> Node<T> reverse(Node<T> list){
-        if(list == null || list.getNext() == null){
-            return list;
+    /**
+     * Reverses the given singly-linked node.
+     * Complexity: Time = O(n), Space = O(1)
+     * @param node
+     * @return Head of the reversed node
+     */
+    private static <T> Node<T> reverse(Node<T> node) {
+        if (node == null || node.getNext() == null) {
+            return node;
         }
 
-        Node<T> n1 = list;
+        Node<T> n1 = node;
         Node<T> n2 = n1.getNext();
 
         n1.setNext(null);
-        while(n2 != null){
+        while (n2 != null) {
             Node<T> temp = n2.getNext();
             n2.setNext(n1);
             n1 = n2;
-            if(temp==null) {
+            if (temp == null) {
                 break;
             }
             n2 = temp;
@@ -41,45 +47,18 @@ public class ReverseSinglyLinkedList {
         return n2;
     }
 
-    private static <T> void print(Node<T> list){
-        if(list == null){
+    private static <T> void print(Node<T> list) {
+        if (list == null) {
             System.out.println("null");
             return;
         }
 
         Node node = list;
-        while(node.getNext()!=null){
+        while (node.getNext() != null) {
             System.out.print(node.getValue() + " -> ");
             node = node.getNext();
         }
 
         System.out.println("null");
-    }
-
-    private static class Node<T> {
-        private T value;
-        private Node<T> next;
-
-        public Node(T value, Node<T> next) {
-            this.value = value;
-            this.next = next;
-        }
-
-        public T getValue() {
-            return value;
-        }
-
-        public Node<T> getNext() {
-            return next;
-        }
-
-        public void setNext(Node<T> next) {
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return new StringBuilder("Node{").append(value).append(", ").append(next).append('}').toString();
-        }
     }
 }
