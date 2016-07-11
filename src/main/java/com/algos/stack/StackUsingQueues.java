@@ -1,7 +1,5 @@
 package com.algos.stack;
 
-import org.testng.Assert;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,8 +30,8 @@ public class StackUsingQueues<T> {
         list.add(stack.pop());
         list.add(stack.pop());
 
-        System.out.println(list.toString());
-        Assert.assertEquals("[3, 4, 2, 5, 1]", list.toString());
+        System.out.println(list.toString()); //"[3, 4, 2, 5, 1]"
+//        Assert.assertEquals("[3, 4, 2, 5, 1]", list.toString());
     }
 
     private void push(T item){
