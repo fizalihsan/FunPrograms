@@ -24,35 +24,35 @@ public class BSTNode<K extends Comparable<? super K>, V> {
         this.right = right;
     }
 
-    public K getKey() {
+    public K key() {
         return key;
     }
 
-    public void setKey(K key) {
+    public void key(K key) {
         this.key = key;
     }
 
-    public V getValue() {
+    public V value() {
         return value;
     }
 
-    public void setValue(V value) {
+    public void value(V value) {
         this.value = value;
     }
 
-    public BSTNode<K, V> getLeft() {
+    public BSTNode<K, V> left() {
         return left;
     }
 
-    public void setLeft(BSTNode<K, V> left) {
+    public void left(BSTNode<K, V> left) {
         this.left = left;
     }
 
-    public BSTNode<K, V> getRight() {
+    public BSTNode<K, V> right() {
         return right;
     }
 
-    public void setRight(BSTNode<K, V> right) {
+    public void right(BSTNode<K, V> right) {
         this.right = right;
     }
 

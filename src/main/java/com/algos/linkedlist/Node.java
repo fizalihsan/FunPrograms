@@ -19,15 +19,15 @@ public class Node<T> {
         this.next = next;
     }
 
-    public T getValue() {
+    public T value() {
         return value;
     }
 
-    public Node<T> getNext() {
+    public Node<T> next() {
         return next;
     }
 
-    public void setNext(Node<T> next) {
+    public void next(Node<T> next) {
         this.next = next;
     }
 

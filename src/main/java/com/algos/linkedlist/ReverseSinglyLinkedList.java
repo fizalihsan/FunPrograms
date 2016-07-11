@@ -26,17 +26,17 @@ public class ReverseSinglyLinkedList {
      * @return Head of the reversed node
      */
     private static <T> Node<T> reverse(Node<T> node) {
-        if (node == null || node.getNext() == null) {
+        if (node == null || node.next() == null) {
             return node;
         }
 
         Node<T> n1 = node;
-        Node<T> n2 = n1.getNext();
+        Node<T> n2 = n1.next();
 
-        n1.setNext(null);
+        n1.next(null);
         while (n2 != null) {
-            Node<T> temp = n2.getNext();
-            n2.setNext(n1);
+            Node<T> temp = n2.next();
+            n2.next(n1);
             n1 = n2;
             if (temp == null) {
                 break;
@@ -54,9 +54,9 @@ public class ReverseSinglyLinkedList {
         }
 
         Node node = list;
-        while (node.getNext() != null) {
-            System.out.print(node.getValue() + " -> ");
-            node = node.getNext();
+        while (node.next() != null) {
+            System.out.print(node.value() + " -> ");
+            node = node.next();
         }
 
         System.out.println("null");

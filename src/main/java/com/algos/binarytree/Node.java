@@ -21,28 +21,20 @@ public class Node<E> {
         this.right = right;
     }
 
-    public E getValue() {
+    public E value() {
         return value;
     }
 
-    public Node<E> getLeft() {
+    public Node<E> left() {
         return left;
     }
 
-    public Node<E> getRight() {
+    public Node<E> right() {
         return right;
     }
 
-    public void setValue(E value) {
+    public void value(E value) {
         this.value = value;
-    }
-
-    public void setLeft(Node<E> left) {
-        this.left = left;
-    }
-
-    public void setRight(Node<E> right) {
-        this.right = right;
     }
 
     @Override

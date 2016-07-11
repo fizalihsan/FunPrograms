@@ -24,7 +24,7 @@ public class KthNodeFromEndFinder {
         );
 
         final Node<Integer> node = kthNodeFromEnd(list, 3);
-        System.out.println(node==null?null:node.getValue());
+        System.out.println(node==null?null:node.value());
     }
 
     /**
@@ -46,7 +46,7 @@ public class KthNodeFromEndFinder {
         //1. Count the number of nodes in the list
         while (p1 != null) {
             nodeCount++;
-            p1 = p1.getNext();
+            p1 = p1.next();
         }
 
         //2. If the size is less than k, then return null
@@ -57,7 +57,7 @@ public class KthNodeFromEndFinder {
         //3. get the (n-len+1)th node from the begining
         p1 = head;
         for (int i = 0; i < (nodeCount - k); i++) {
-            p1 = p1.getNext();
+            p1 = p1.next();
         }
 
         return p1;

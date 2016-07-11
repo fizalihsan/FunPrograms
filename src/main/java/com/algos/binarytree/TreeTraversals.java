@@ -1,7 +1,9 @@
 package com.algos.binarytree;
 
 /**
- * Comment here about the class
+ *                   A
+ *              B         C
+ *           D     E   F     G
  * User: Fizal
  * Date: 5/16/2016
  * Time: 7:56 AM
@@ -19,31 +21,35 @@ public class TreeTraversals {
                 );
 
         System.out.print("\nPreorder: ");
-        preorder(root);
+        preorder(root); //A, B, D, E, C, F, G,
         System.out.print("\nInorder: ");
-        inorder(root);
+        inorder(root); //D, B, E, A, F, C, G,
         System.out.print("\nPostorder: ");
-        postorder(root);
+        postorder(root); //D, E, B, F, G, C, A,
     }
 
     private static void preorder(Node root) {
         if (root == null) return; // Empty subtree - do nothing
-        System.out.print(root.getValue() + ", "); // Process root node
-        preorder(root.getLeft()); // Process all nodes in left
-        preorder(root.getRight()); // Process all nodes in right
+        System.out.print(root.value() + ", "); // Process root node
+        preorder(root.left()); // Process all nodes in left
+        preorder(root.right()); // Process all nodes in right
     }
 
     private static void inorder(Node root) {
         if (root == null) return; // Empty subtree - do nothing
-        inorder(root.getLeft()); // Process all nodes in left
-        System.out.print(root.getValue() + ", "); // Process root node
-        inorder(root.getRight()); // Process all nodes in right
+        inorder(root.left()); // Process all nodes in left
+        System.out.print(root.value() + ", "); // Process root node
+        inorder(root.right()); // Process all nodes in right
     }
 
     private static void postorder(Node root) {
         if (root == null) return; // Empty subtree - do nothing
-        postorder(root.getLeft()); // Process all nodes in left
-        postorder(root.getRight()); // Process all nodes in right
-        System.out.print(root.getValue() + ", "); // Process root node
+        postorder(root.left()); // Process all nodes in left
+        postorder(root.right()); // Process all nodes in right
+        System.out.print(root.value() + ", "); // Process root node
+    }
+
+    private static void breadthFirst(Node root){
+
     }
 }

@@ -32,12 +32,12 @@ public class BinarySearchTree<K extends Comparable<? super K>, V> {
             return new BSTNode<>(key, value);
         }
 
-        if(node.getKey().compareTo(key) > 0){
-            final BSTNode<K, V> left = putHelp(node.getLeft(), key, value);
-            node.setLeft(left);
-        } else if(node.getKey().compareTo(key) < 0) {
-            final BSTNode<K, V> right = putHelp(node.getRight(), key, value);
-            node.setRight(right);
+        if(node.key().compareTo(key) > 0){
+            final BSTNode<K, V> left = putHelp(node.left(), key, value);
+            node.left(left);
+        } else if(node.key().compareTo(key) < 0) {
+            final BSTNode<K, V> right = putHelp(node.right(), key, value);
+            node.right(right);
         }
         return node;
     }

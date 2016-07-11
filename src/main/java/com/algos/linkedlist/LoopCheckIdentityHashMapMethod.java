@@ -16,7 +16,7 @@ public class LoopCheckIdentityHashMapMethod {
         final Node<Integer> node3 = new Node<>(3, node4);
         final Node<Integer> node2 = new Node<>(2, node3);
         final Node<Integer> node1 = new Node<>(1, node2);
-        node4.setNext(node1);
+        node4.next(node1);
 
         System.out.println(hasLoop(node1));
 
@@ -46,7 +46,7 @@ public class LoopCheckIdentityHashMapMethod {
                 return true;
             }
             map.put(next, next);
-            next = next.getNext();
+            next = next.next();
         }
 
         return false;

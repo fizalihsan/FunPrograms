@@ -13,7 +13,7 @@ public class LoopCheckTortoiseAndHareMethod {
         final Node<Integer> node3 = new Node<>(3, node4);
         final Node<Integer> node2 = new Node<>(2, node3);
         final Node<Integer> node1 = new Node<>(1, node2);
-        node4.setNext(node1);
+        node4.next(node1);
 
         System.out.println(hasLoop(node1));
 
@@ -41,9 +41,9 @@ public class LoopCheckTortoiseAndHareMethod {
 
         Node<T> slow = head, fast = head;
 
-        while (fast.getNext()!=null && fast.getNext().getNext()!=null){ // no need to check for slow!=null since fast did that already
-            slow = slow.getNext();
-            fast = fast.getNext().getNext();
+        while (fast.next()!=null && fast.next().next()!=null){ // no need to check for slow!=null since fast did that already
+            slow = slow.next();
+            fast = fast.next().next();
 
             if(slow == fast) {
                 return true;

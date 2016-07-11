@@ -8,7 +8,7 @@ import java.util.Stack;
  * Date: 5/16/2016
  * Time: 7:21 PM
  */
-public class StackQueues {
+public class QueueUsingStacks {
     public static void main(String[] args) {
         OneStackQueue<Integer> queue = new OneStackQueue<>();
         System.out.println(queue.deque());

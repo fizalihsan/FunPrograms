@@ -46,13 +46,13 @@ public class BinarySearchTreeChecker {
     private static boolean checkBST(Node<Integer> root, int low, int high) {
         if (root == null) return true; // Empty subtree
 
-        int rootkey = root.getValue();
+        int rootkey = root.value();
 
         if (rootkey < low || rootkey > high) {
             return false; // Out of range
         }
 
-        return checkBST(root.getLeft(), low, rootkey) && checkBST(root.getRight(), rootkey, high);
+        return checkBST(root.left(), low, rootkey) && checkBST(root.right(), rootkey, high);
 
     }
 
@@ -62,17 +62,17 @@ public class BinarySearchTreeChecker {
     private static boolean checkBST(Node<Integer> root) {
         if (root == null) return true; // Empty subtree
 
-        int rootkey = root.getValue();
+        int rootValue = root.value();
 
-        if (root.getLeft() != null && root.getLeft().getValue() > rootkey) { // check left child, if exists
+        if (root.left() != null && root.left().value() > rootValue) { // check left child, if exists
             return false;
         }
 
-        if (root.getRight() != null && rootkey > root.getRight().getValue()) { // check right, if exists
+        if (root.right() != null && rootValue > root.right().value()) { // check right, if exists
             return false;
         }
 
-        return checkBST(root.getLeft()) && checkBST(root.getRight());
+        return checkBST(root.left()) && checkBST(root.right());
 
     }
 }
