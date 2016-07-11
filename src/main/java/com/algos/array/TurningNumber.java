@@ -1,4 +1,4 @@
-package com.algos.numbers;
+package com.algos.array;
 
 /**
  * A turning number is the maximum number in a unimodal array that increases and then decreases.

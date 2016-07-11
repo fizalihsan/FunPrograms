@@ -1,4 +1,4 @@
-package com.algos.numbers;
+package com.algos.array;
 
 /**
  * Comment here about the class
