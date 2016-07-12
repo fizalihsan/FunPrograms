@@ -11,6 +11,8 @@ public class Formatting {
     public static void main(String[] args) {
         // String formatting
         System.out.println(String.format("%s", "a"));         //prints 'a'
+
+        System.out.println(String.format("%-4s", "a"));        //prints 'a    ' (using space padding)
         System.out.println(String.format("%4s", "a"));        //prints '   a' (using space padding)
         System.out.println(String.format("%2$s", "a", "b"));  //prints 'b' (using argument index)
         System.out.println(String.format("%2$4s", "a", "b")); //prints '   b' (using argument index and space padding)
