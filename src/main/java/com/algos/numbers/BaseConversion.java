@@ -1,4 +1,4 @@
-package com.algos.string;
+package com.algos.numbers;
 
 import java.util.HashMap;
 import java.util.Map;
