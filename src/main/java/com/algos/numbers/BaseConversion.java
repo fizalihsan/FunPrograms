@@ -47,7 +47,7 @@ public class BaseConversion {
         MAP.put(16, "0123456789ABCDEF");
     }
 
-    private static String fromDecimal(int num, int base){
+    static String fromDecimal(int num, int base){
         if(num==0){
             return "0";
         }
@@ -69,7 +69,7 @@ public class BaseConversion {
         return builder.toString();
     }
 
-    private static int toDecimal(String num, int base){
+    static int toDecimal(String num, int base){
         boolean isNegative = num.trim().startsWith("-");
 
         int decimal = 0;
@@ -87,7 +87,7 @@ public class BaseConversion {
         return isNegative?-1*decimal:decimal;
     }
 
-    public static int excelColumnNameToIndex(String columnName) {
+    static int excelColumnNameToIndex(String columnName) {
         int index = 0;
         char[] name = columnName.toUpperCase().toCharArray();
 
