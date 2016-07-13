@@ -35,6 +35,11 @@ public class BaseConversion {
             System.out.println("From base " + fromBase + ", value of " + i + " in decimal = " + toDecimal(i, fromBase));
         }
         System.out.println("------------------------");
+
+        for (String i : new String[]{"A", "Z", "AA", "AZ", "ZZ"}) {
+            System.out.println("Excel column " + i + " is index = " + excelColumnNameToIndex(i));
+        }
+        System.out.println("------------------------");
     }
 
     private static final Map<Integer, String> MAP = new HashMap<>();
@@ -80,5 +85,17 @@ public class BaseConversion {
         }
 
         return isNegative?-1*decimal:decimal;
+    }
+
+    public static int excelColumnNameToIndex(String columnName) {
+        int index = 0;
+        char[] name = columnName.toUpperCase().toCharArray();
+
+        for(int i = 0; i < name.length; i++) {
+            index *= 26;
+            index += name[i] - 'A' + 1;
+        }
+
+        return index;
     }
 }
