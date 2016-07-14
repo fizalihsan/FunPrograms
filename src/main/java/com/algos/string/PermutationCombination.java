@@ -11,11 +11,13 @@ import java.util.Stack;
 public class PermutationCombination {
     public static void main(String[] args) {
 //        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String word = "cat";
+        String word = "charm";
         System.out.println(" ----------- Permutations -------------");
         permutation(word);
         System.out.println(" ----------- Combinations -------------");
         combination(word);
+        System.out.println(" ----------- Combinations 2 -------------");
+        combination2(word);
     }
 
     /**
@@ -40,7 +42,7 @@ public class PermutationCombination {
     }
 
     /**
-     *
+     * Prints (2^n)-1 combinations of a given string, where n is the length of the string
      * @param str
      */
     private static void combination(String str) {
@@ -68,4 +70,30 @@ public class PermutationCombination {
         combination(str, index + 1, number, result);
     }
 
+    /**
+     * Combination generation using bit-wise operation. If the input string is 2 characters in length,
+     * then 3 (2^2 -1) combinations like 01, 10, 11 are possible.
+     *
+     * For each combination, print the character at the index where bit is set.
+     * @param str
+     */
+    public static void combination2(String str) {
+        count = 0;
+        int numberOfBits = str.length();
+        int totalCombinations = (int)Math.pow(2, numberOfBits) -1; // 2^n -1
+
+        for (int i = 1; i <= totalCombinations; i++) {
+            //convert integer to binary, e.g., 2 = 0010. # of bits depends is equal to the size of the input string
+            final String binary = String.format("%"+ str.length() +"s", Integer.toBinaryString(i)).replace(' ', '0');
+
+            System.out.print(++count + ": ");
+            for (int j = 0; j < binary.length(); j++) {
+                if(binary.charAt(j)=='1'){
+                    System.out.print(str.charAt(j));
+                }
+            }
+            System.out.println();
+        }
+
+    }
 }
