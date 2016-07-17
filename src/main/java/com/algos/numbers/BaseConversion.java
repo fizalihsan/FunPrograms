@@ -2,7 +2,6 @@ package com.algos.numbers;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 
 /**
  * Comment here about the class
@@ -13,6 +12,12 @@ import java.util.Stack;
 public class BaseConversion {
     public static void main(String[] args) {
         int toBase = 16;
+        for (int i : new int[]{Integer.MIN_VALUE, -2, -1, 0, 1, 2, Integer.MAX_VALUE}) {
+            System.out.println("Decimal " + i + " to base " + toBase + " = " + fromDecimal(i, toBase));
+        }
+        System.out.println("------------------------");
+
+        toBase = 62;
         for (int i : new int[]{Integer.MIN_VALUE, -2, -1, 0, 1, 2, Integer.MAX_VALUE}) {
             System.out.println("Decimal " + i + " to base " + toBase + " = " + fromDecimal(i, toBase));
         }
@@ -45,28 +50,24 @@ public class BaseConversion {
     private static final Map<Integer, String> MAP = new HashMap<>();
     static {
         MAP.put(16, "0123456789ABCDEF");
+        MAP.put(62, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
     }
 
     public static String fromDecimal(int num, int base){
         if(num==0){
             return "0";
         }
-        Stack<String> stack = new Stack<>();
+        StringBuilder result = new StringBuilder();
         String map = MAP.get(base);
 
         while(num!=0){
             final int remainder = num % base;
             String value = map==null?""+remainder:""+map.charAt(Math.abs(remainder));
-            stack.push(value);
+            result.append(value);
             num/=base;
         }
 
-        StringBuilder builder = new StringBuilder();
-        while(!stack.isEmpty()){
-            builder.append(stack.pop());
-        }
-
-        return builder.toString();
+        return result.reverse().toString();
     }
 
     public static int toDecimal(String num, int base){

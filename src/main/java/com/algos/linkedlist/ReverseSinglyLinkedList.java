@@ -15,12 +15,22 @@ public class ReverseSinglyLinkedList {
         );
 
         print(list);
-        list = reverse(list);
-        print(list);
+        Node<Integer> reversed = reverse(list);
+        print(reversed);
+
+        list = new Node<>(1,
+                new Node<>(2,
+                        new Node<>(3,
+                                new Node<>(4, null)
+                        )
+                )
+        );
+        reversed = reverse2(list);
+        print(reversed);
     }
 
     /**
-     * Reverses the given singly-linked node.
+     * Reverses the given singly-linked list.
      * Complexity: Time = O(n), Space = O(1)
      * @param node
      * @return Head of the reversed node
@@ -47,6 +57,26 @@ public class ReverseSinglyLinkedList {
         return n2;
     }
 
+    /**
+     * Recursive version of reversing a singly-linked list
+     * @param original
+     * @param <T>
+     * @return
+     */
+    public static <T> Node<T> reverse2(final Node<T> original) {
+        if (original == null) {
+            throw new NullPointerException("Cannot reverse a null list");
+        }
+        if(original.next() == null) {
+            return original;
+        }
+        final Node<T> next = original.next();
+        original.next(null);
+        final Node<T> othersReversed = reverse(next);
+        next.next(original);
+        return othersReversed;
+    }
+
     private static <T> void print(Node<T> list) {
         if (list == null) {
             System.out.println("null");
@@ -54,7 +84,7 @@ public class ReverseSinglyLinkedList {
         }
 
         Node node = list;
-        while (node.next() != null) {
+        while (node != null) {
             System.out.print(node.value() + " -> ");
             node = node.next();
         }
