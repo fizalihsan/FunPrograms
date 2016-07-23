@@ -63,11 +63,11 @@ public class OwnershipCalculator {
         while(true){
             final Relation relation = map.get(child);
 
-            ownershipPercent = ownershipPercent==0.0? relation.getOwnership():ownershipPercent * (relation.getOwnership()/100);
-            if(relation.getParent().equals(parent)){
+            ownershipPercent = ownershipPercent==0.0? relation.ownership():ownershipPercent * (relation.ownership()/100);
+            if(relation.parent().equals(parent)){
                 break;
             } else {
-                child = relation.getParent();
+                child = relation.parent();
             }
         }
 
@@ -84,7 +84,7 @@ public class OwnershipCalculator {
             this.name = name;
         }
 
-        public String getName() {
+        public String name() {
             return name;
         }
 
@@ -124,21 +124,21 @@ public class OwnershipCalculator {
             this.ownership = ownership;
         }
 
-        public Entity getParent() {
+        public Entity parent() {
             return parent;
         }
 
-        public Entity getChild() {
+        public Entity child() {
             return child;
         }
 
-        public double getOwnership() {
+        public double ownership() {
             return ownership;
         }
 
         @Override
         public String toString() {
-            final StringBuilder sb = new StringBuilder("Ownership{");
+            final StringBuilder sb = new StringBuilder("Relation{");
             sb.append("parent=").append(parent);
             sb.append(", child=").append(child);
             sb.append(", ownership=").append(ownership);
